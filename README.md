@@ -1,6 +1,7 @@
 # Eaternity Database User Manual
 Access to the current running instance of the Application can be found on [http://my-edb.herokuapp.com](http://my-edb.herokuapp.com). There are three tools available: [Products DB](http://my-edb.herokuapp.com/index-prod.html/), [Nutrition DB](http://my-edb.herokuapp.com/index-nutr.html) and [EDB-Prose](http://my-edb.herokuapp.com/prose/). How to work with the Eaternity database:
-1. Make sure you have i) a GitHub account and ii) sufficient rights to access the data stored in in https://github.com/eaternity-agent/eaternity-database-public -> Master Branch -> <code>&#95;data/prods</code> or <code>&#95;data/nutrs</code> -> repository.
+
+1. Make sure you have i) a GitHub account and ii) sufficient rights to access the data stored in in https://github.com/Eaternity/eaternity-database-public -> Master Branch -> <code>&#95;data/prods</code> or <code>&#95;data/nutrs</code> -> repository
 2. Open the [Jekyll-DB overview on all products/nutritions](http://my-edb.herokuapp.com/). You can search any text displayed on the page and sort by columns. Click on the product/nutrition you want to edit.
 3. If you are already logged in with your GitHub account, the file is displayed as a form. If you are not yet logged in, a page will appear telling you to please _AUTHORIZE ON GITHUB_. You will be redirected to a GitHub page where you will be asked for your GitHub username and password. If you do not have sufficient rights to access the linked data, you will receive an error page telling you that there is no such resource/web page available.
 4. Edit the data in the input form and save your data using the "Save" icon on the right. You will have to provide a short text explaining your changes before saving.
@@ -32,7 +33,7 @@ The website including all files are stored in a GitHub repository available in t
 2. EDB Prose: EDB Prose is an adapted version of prose relying on JSONForm to display user forms. For more information, see further below. Although all the code is inside the repo's <code>prose</code> directory, the file <code>prose/index.html</code> expects a few other Javascript files to exist one level above it, i.e. in <code>prose/../..</code>.
 3. Jekyll-Auth: Jekyll-Auth is used to control access to the website hosted on Heroku.
 
-When  a user makes any changes to the local clone of the GitHub repository, he then adds <code>git add...</code>, commits <code>git commit -m "blah"</code> and pushes <code>git push</code> these changes to the remote GitHub repository. A webhook is available for the _eaternity-database-public_ repository, and it is through this webhook that the Jekyll server running on Heroku is informed about pending updates. The Heroku server process grabs the changed files from the GitHub repository and rebuilds the whole website. (The whole process usually takes several minutes.) This automatic deployment from GitHub's repo to Heroku's repo is set up using a [GitHub integration feature for Heroku apps](https://devcenter.heroku.com/articles/github-integration). To see the current settings, log in to the Heroku Dashboard as _dev@eaternity.ch_ and click on the _Deploy_ menu item. (The GitHub integration feature is currently in beta status. An older, but still working alternative would be to use [Heroku deployer](https://github.com/himynameisjonas/heroku-deployer/), but this is more difficult to set up).
+When  a user makes any changes to the local clone of the GitHub repository, he then adds <code>git add...</code>, commits <code>git commit -m "blah"</code> and pushes <code>git push</code> these changes to the remote GitHub repository. A webhook is available for the _eaternity-database-public_ repository, and it is through this webhook that the Jekyll server running on Heroku is informed about pending updates. The Heroku server process grabs the changed files from the GitHub repository and rebuilds the whole website. (The whole process usually takes several minutes.) This automatic deployment from GitHub's repo to Heroku's repo is set up using a [GitHub integration feature for Heroku apps](https://devcenter.heroku.com/articles/github-integration). To see the current settings, log in to the Heroku Dashboard as &lt;owner of my-edb Heroku app&gt; and click on the _Deploy_ menu item. (The GitHub integration feature is currently in beta status. An older, but still working alternative would be to use [Heroku deployer](https://github.com/himynameisjonas/heroku-deployer/), but this is more difficult to set up).
 
 The Heroku server process has its own Git repository available under <code>git@heroku.com:my-edb.git</code>, but this repository should not be pushed to with <code>git push heroku master</code> in most cases. The reason is that the corresponding "sibling" repository on GitHub _eaternity-database-public_ will of course *not*  be notified of any changes made to Heroku.
 
@@ -89,6 +90,7 @@ In the case of Prose, a dedicated gatekeeper server is needed for the OAuth proc
 #### Step 3: Install and run Prose gatekeeper server on Heroku
 
 Next, we need to install our own gatekeeper server on Heroku. The installation steps are described in [Prose's documentation on Gatekeeper](https://github.com/prose/gatekeeper). Here they are:  
+
 1. Clone the gatekeeper server repository:  
 <code>git clone git@github.com:prose/gatekeeper.git</code>  
 2. Install the dependencies:
@@ -116,6 +118,7 @@ In our case, we chose to use the name "my-edb-prose-gatekeeper" for our applicat
 
 #### Step 5: Prepare and push Prose to the GitHub repository, project and branch
 We are now ready to rebuild our adapted version of Prose, so that authorisation through gatekeeper runs smoothly.  
+
 1. For this purpose, we need to adapt the file oauth.json:
 ```  
 {  
