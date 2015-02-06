@@ -1,0 +1,11 @@
+{
+  "name": "Bla",
+  "id": -1,
+  "nutr-vals": [
+    {
+      "component-id": "ALC",
+      "value": 22,
+      "unit": "11"
+    }
+  ]
+}

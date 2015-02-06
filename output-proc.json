@@ -1,0 +1,8 @@
+---
+layout: null
+---
+[{% for proc in site.data.procs %}{
+	"id": "{{ proc[1].id }}",
+	"name": "{{ proc[1].name }}",
+	"file": "{{ proc[0] }}.json"
+}{% if forloop.rindex0 > 0 %},{% endif %}{% endfor %}]

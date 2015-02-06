@@ -1,0 +1,12 @@
+---
+layout: null
+---
+[{% for prod in site.data.prods %}{
+	"id": "{{ prod[1].id }}",
+	"name": "{{ prod[1].name }}",
+	"specification": "{{ prod[1].specification }}",
+	"synonyms": "{{ prod[1].synonyms }}",
+	"tags": "{{ prod[1].tags }}",
+	"co2-value": "{{ prod[1].co2-value }}",
+	"file": "{{ prod[0] }}.json"
+}{% if forloop.rindex0 > 0 %},{% endif %}{% endfor %}]

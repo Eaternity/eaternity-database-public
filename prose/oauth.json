@@ -1,0 +1,7 @@
+{
+  "api": "https://api.github.com",
+  "site": "https://github.com",
+  "clientId": "da429541964e3302c62f",
+  "gatekeeperUrl": "https://edb-prose-gatekeeper.herokuapp.com"
+}
+ 

@@ -1,0 +1,11 @@
+{
+  "name": "Test",
+  "id": -1,
+  "description": "My description",
+  "co2-value": 2.4,
+  "parameter-name": "foo-param",
+  "references": "Bud & Spencer 2007",
+  "documentation": "My docs",
+  "is-standard-process-value": true,
+  "comment": "Here's a comment."
+}

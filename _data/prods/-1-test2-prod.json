@@ -1,0 +1,19 @@
+{
+  "tags": "supertag",
+  "co2-value": 0.333,
+  "co2-calculation": "",
+  "nutrition-id": "-987654321",
+  "other-references": "",
+  "quantity-comments": "",
+  "quantity-references": "",
+  "combined-product": false,
+  "co2-calculation-parameters": "",
+  "id": -1,
+  "references": "",
+  "linked-id": "1003",
+  "calculation-process-documentation": "",
+  "production-methods": [],
+  "name": "Test 2",
+  "delete": false,
+  "specification": "huh?"
+}

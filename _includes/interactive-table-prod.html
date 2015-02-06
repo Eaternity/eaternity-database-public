@@ -1,0 +1,49 @@
+<div id="entry-list">
+
+<div class="row" style="margin-bottom:10px;">
+		<input type="text" class="search form-control" placeholder="Search" />
+</div>
+
+<div class="row">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th style="width:5%;"><span class="sort" data-sort="id">ID</span></th>
+			<th style="width:15%;"><span class="sort" data-sort="name">Name</span></th>
+			<th style="width:15%;"><span class="sort" data-sort="specification">Specification</span></th>
+			<th style="width:15%;"><span class="sort" data-sort="synonyms">Synonyms</span></th>
+			<th style="width:25%;"><span class="sort" data-sort="tags">Tags</span></th>
+			<th style="width:8%;"><span class="sort" data-sort="co2-value">CO2 Value</span></th>
+			<th style="width:17%;"><span class="sort" data-sort="file">File</span></th>
+		</tr>
+	</thead>
+	<tbody class="list">
+	{% for prod in site.data.prods %}
+		<tr>
+			<td class="id">{{ prod[1].id | escape }}</td>
+			<td class="name">{{ prod[1].name | escape }}</td>
+			<td class="specification">{{ prod[1].specification | escape }}</td>
+			<td class="synonyms">{{ prod[1].synonyms | escape }}</td>
+			<td class="tags">{{ prod[1].tags | escape }}</td>
+			<td class="co2-value">{{ prod[1].co2-value | escape }}</td>
+			<td class="file"><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/prods/{{ prod[0] }}.json">{{ prod[0] }}.json</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+
+var options = {
+  valueNames: ['id', 'name', 'specification', 'synonyms', 'tags', 'co2-value', 'file'],
+  // Number of items to display. Not displayed items will still be searchable.
+  page: 5000
+};
+
+var entryList = new List('entry-list', options);
+
+</script>

@@ -1,0 +1,32 @@
+{
+  "tags": "Here come all my tags.",
+  "co2-calculation": "",
+  "co2-value": 1.44,
+  "nutrition-id": "9999999",
+  "density": 45.55,
+  "other-references": "Guten\r\n\r\nTag\r\n\r\nHier\r\n\r\nGibts\r\n\r\nNewlines.",
+  "quantity-comments": "asdf",
+  "quantity-references": "asdfasdf",
+  "combined-product": false,
+  "packaging-methods": [],
+  "co2-calculation-parameters": "",
+  "id": -1,
+  "references": "",
+  "unit-weight": 2.454,
+  "processing-methods": [
+    "1",
+    "2",
+    "6"
+  ],
+  "calculation-process-documentation": "",
+  "linked-id": "102",
+  "origins": "as",
+  "production-methods": [],
+  "name": "Test",
+  "delete": false,
+  "preservation-methods": [
+    "1",
+    "4",
+    "7"
+  ]
+}

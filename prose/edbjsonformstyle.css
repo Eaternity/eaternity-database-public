@@ -1,0 +1,42 @@
+#jsonform fieldset {
+  border: 2px solid;
+  border-color: inherit;
+  padding: 10px;
+}
+
+#jsonform fieldset legend {
+  font-size: 1.875em;
+}
+
+#jsonform fieldset .title .controls input {
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+#jsonform .expandable > legend:before {
+  content: '\25B8';
+  padding-right: 5px;
+}
+#jsonform .expanded > legend:before {
+  content: '\25BE';
+}
+
+#jsonform .hide {
+  display: none;
+}
+
+/*
+--> Add the next two entries if you want to add an asterisk after required field using CSS <--
+
+.jsonform-required > label:after {
+  content: ' *';
+  color: red;
+}
+
+.jsonform-hasrequired:after {
+  content: '* Required field';
+  display: block;
+  color: red;
+  padding-top: 1em;
+}
+*/

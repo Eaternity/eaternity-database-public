@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div>
+
+  <h1>Different Nutrition Files With Same ID</h1>
+  <p>This is a list of nutrition files which have the same ID. An empty list indicates that there are no such nutrition files. Be aware that after changes this site will take some time to update.</p>
+
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Name 1</th>
+ 	<th>File Name 1</th>
+	<th>Name 2</th>
+ 	<th>File Name 2</th>
+  </tr>
+  {% for nutr1 in site.data.nutrs %}
+    {% assign outerIndex = forloop.index %}
+    {% for nutr2 in site.data.nutrs offset:outerIndex %}
+      {% if nutr1[0] != nutr2[0] %}
+	    {% if nutr1[1].id == nutr2[1].id %}      
+		<tr>
+		  <td>{{ nutr1[1].id | escape }}</td>
+	      <td>{{ nutr1[1].name | escape }}</td>
+         <td><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/nutrs/{{ nutr1[0] }}.json">{{ nutr1[0] }}.json</a></td>
+		  <td>{{ nutr2[1].name | escape }}</td>
+          <td><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/nutrs/{{ nutr2[0] }}.json">{{ nutr2[0] }}.json</a></td>
+		</tr>
+		{% endif %}
+	  {% endif %}
+    {% endfor %}
+  {% endfor %}
+  </table>
+
+</div>                                                                             

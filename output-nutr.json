@@ -1,0 +1,8 @@
+---
+layout: null
+---
+[{% for nutr in site.data.nutrs %}{
+	"id": "{{ nutr[1].id }}",
+	"name": "{{ nutr[1].name }}",
+	"file": "{{ nutr[0] }}.json"
+}{% if forloop.rindex0 > 0 %},{% endif %}{% endfor %}]

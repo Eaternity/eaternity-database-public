@@ -1,0 +1,9 @@
+# Important: When building the site with Jekyll, we need to exclude
+# both the node_modules and the vendor directories! Otherwise,
+# we receive this error:
+# default_proc=' for "this --- is correct":String (NoMethodError)
+# For more details, see here: https://github.com/jekyll/jekyll/issues/2624
+
+exclude:
+  - node_modules
+  - vendor

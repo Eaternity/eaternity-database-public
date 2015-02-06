@@ -1,0 +1,39 @@
+# The domain name where the EDB prose solution is running
+edb_prose_domain_name:  edb-website.herokuapp.com
+
+# The name of the GitHub organization owning the relevant
+# repository (which contains the _data directory with product
+# files, nutrition files etc.)
+github_edb_org_name:  Eaternity  
+
+# The name of the GitHub repository containing the relevant
+# _data directory with product files, nutrition files etc.
+github_edb_repo_name:  Eaternity-Database
+
+# The name of the GitHub repository's branch (usually master or gh-pages)
+github_edb_repo_branch_name:  master
+
+# Important: When building the site with Jekyll, we need to exclude
+# both the node_modules and the vendor directories in prose's subdirectory!
+# Otherwise, we receive this error:
+# default_proc=' for "this --- is correct":String (NoMethodError)
+# For more details, see here: https://github.com/jekyll/jekyll/issues/2624
+exclude:
+  - script
+  - bin
+  - lib
+  - Gemfile
+  - Gemfile.lock
+  - jekyll-auth.gemspec
+  - jekyll-auth*.gem
+  - config.ru
+  - Rakefile
+  - readme.md
+  - vendor
+  - prose/node_modules
+  - prose/vendor
+
+jekyll_auth:
+#  whitelist:
+#    - dummy
+  ssl: false

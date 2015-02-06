@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div>
+
+  <h1>Unreferenced Nutrition Files</h1>
+  <p>This is a list of nutritions which are not referenced from any product. An empty list indicates that there are no unreferenced nutritions. Please see also <a href="./invalid-links-prod-to-nutr.html">Missing or Invalid Links to Nutritions in Products</a>.</p>
+
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+	<th>File Name</th>
+  </tr>
+  {% for nutr in site.data.nutrs %}
+    {% for prod in site.data.prods %}
+	
+      {% if nutr[1].id == prod[1].nutrition-id  %}{% break %}{% endif %}
+	  
+	  {% if forloop.last %}
+	  <tr>
+	    <td>{{ nutr[1].id | escape }}</td>
+        <td>{{ nutr[1].name | escape }}</td>
+		<td><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/nutrs/{{ nutr[0] }}.json">{{ nutr[0] }}.json</a></td>
+	  </tr>
+	  {% endif %}
+	  
+	{% endfor %}
+  {% endfor %}
+  </table>
+
+</div>                                                                             

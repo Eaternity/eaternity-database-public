@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div>
+
+  <h1>Missing or Invalid Links to Nutrition Files in Product Files</h1>
+  <p>This is a list of products with invalid or missing links to nutrition files. An empty list indicates that there are no invalid or missing links. Please see also <a href="./unreferenced-nutr-files.html">Nutrition Files Not Referenced</a> for a list of nutrition which are not referenced from any product.</p>
+
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Specification</th>
+    <th>Nutrition Data</th>
+	<th>File Name</th>
+  </tr>
+  {% for prod in site.data.prods %}
+    {% for nutr in site.data.nutrs %}
+	
+      {% if prod[1].nutrition-id == nutr[1].id  %}{% break %}{% endif %}
+	  
+	  {% if forloop.last %}
+	  <tr>
+	    <td>{{ prod[1].id | escape }}</td>
+        <td>{{ prod[1].name | escape }}</td>
+	    <td>{% if prod[1].specification != null %}{{ prod[1].specification | escape }}{% endif %}</td>
+		<td>{% if prod[1].nutrition-id != null %}{{ prod[1].nutrition-id | escape }}{% endif %}</td>
+        <td class="file"><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/prods/{{ prod[0] }}.json">{{ prod[0] }}.json</a></td>
+	  </tr>
+	  {% endif %}
+	  
+	{% endfor %}
+  {% endfor %}
+  </table>
+
+</div>                                                                             

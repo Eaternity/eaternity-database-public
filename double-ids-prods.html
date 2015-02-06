@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<div>
+
+  <h1>Different Product Files With Same ID</h1>
+  <p>This is a list of product files which have the same ID. An empty list indicates that there are no such product files. Be aware that after changes this site will take some time to update.</p>
+
+  <table>
+  <tr>
+    <th>ID</th>
+    <th>Name 1</th>
+    <th>Specification 1</th>
+	<th>File Name 1</th>
+	<th>Name 2</th>
+    <th>Specification 2</th>
+	<th>File Name 2</th>
+  </tr>
+  {% for prod1 in site.data.prods %}
+    {% assign outerIndex = forloop.index %}
+    {% for prod2 in site.data.prods offset:outerIndex %}
+      {% if prod1[0] != prod2[0] %}
+	    {% if prod1[1].id == prod2[1].id %}      
+		<tr>
+		  <td>{{ prod1[1].id | escape }}</td>
+	      <td>{{ prod1[1].name | escape }}</td>
+	      <td>{% if prod1[1].specification != null %}{{ prod1[1].specification | escape }}{% endif %}</td>
+          <td><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/prods/{{ prod1[0] }}.json">{{ prod1[0] }}.json</a></td>
+		  <td>{{ prod2[1].name | escape }}</td>
+	      <td>{% if prod2[1].specification != null %}{{ prod2[1].specification | escape }}{% endif %}</td>
+          <td><a target="_blank" href="http://{{ site.edb_prose_domain_name }}/prose/#{{ site.github_edb_org_name }}/{{ site.github_edb_repo_name }}/edit/{{ site.github_edb_repo_branch_name }}/_data/prods/{{ prod2[0] }}.json">{{ prod2[0] }}.json</a></td>
+		</tr>
+		{% endif %}
+	  {% endif %}
+    {% endfor %}
+  {% endfor %}
+  </table>
+
+</div>                                                                             

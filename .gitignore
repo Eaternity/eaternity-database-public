@@ -1,0 +1,10 @@
+_site
+*.gem
+.env
+/Gemfile.lock
+.DS_Store
+prose/transifex.auth
+prose/.vimrc
+prose/_data/
+prose/_site/
+_site/
